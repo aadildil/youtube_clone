@@ -48,8 +48,8 @@ async function getVideo(videoId) {
     const channelId = snippet.channelId;
     //channel details
 
-    const channelSnippet = await getChannelData(channelId);
-    //const channelSnippet = channelData.snippet;
+    const channelData = await getChannelData(channelId);
+    const channelSnippet = channelData.snippet;
 
     const channelName = channelSnippet.title;
     const subscriberCount = channelData.statistics.subscriberCount;
@@ -61,7 +61,7 @@ async function getVideo(videoId) {
 
 
     videoContainer.innerHTML = ` 
-    <div class="video-container">
+    
     <div class="top-title"><span>${videoTitle}</span></div>
     <iframe  src="https://www.youtube.com/embed/${videoId}?autoplay=1" frameborder="0" allowfullscreen ></iframe>
     <div class="controls">
@@ -101,7 +101,7 @@ async function getVideo(videoId) {
             </div>
         </div>
     </div>
-</div>
+
 
 <div class="video-title">
     <span>${videoTitle}</span>
@@ -324,7 +324,7 @@ async function getVideo(videoId) {
 
             const sideVideoId = video.id.videoId;
 
-            const sideVideoUrl = `${baseUrl}${sideVideoId}&key=${dataApi_key}&part=snippet,contentDetails,statistics,status`;
+            const sideVideoUrl = `${baseUrl}${sideVideoId}&key=${newKey}&part=snippet,contentDetails,statistics,status`;
 
             const response = await fetch(sideVideoUrl);
             const result = await response.json();
@@ -373,11 +373,11 @@ async function getVideo(videoId) {
 
 //for getting channel details
 async function getChannelData(channelId) {
-    const channelApiUrl = `${channelUrl}${channelId}&key=${dataApi_key}`;
+    const channelApiUrl = `${channelUrl}${channelId}&key=${newKey}`;
     const response = await fetch(channelApiUrl, { method: "GET" });
     const result = await response.json();
    
-    return result.items[0].snippet;
+    return result.items[0];
 }
 
 //for getting comments

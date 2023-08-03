@@ -212,7 +212,7 @@ header {
 
 
 .left-side-bar {
-    width: 5%;
+    width: 2%;
 }
 
 .container {
@@ -548,6 +548,7 @@ header {
     display: flex;
     flex-direction: column;
     gap: 5px;
+    width: 90%;
 }
 .comment-name-and-time
 {
@@ -681,9 +682,14 @@ header {
 }
 
 
-@media screen and (max-width:768px){
+@media  (max-width:768px){
     .main
     {
         flex-direction: column;
     }
+    .side-bar
+    {
+        width: 100%;
+    }
+    
 }
