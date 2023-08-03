@@ -146,7 +146,7 @@ function convertCount(number) {
     return (isNegative ? '-' : '') + formattedNumber + suffix;
 }
 
-//getResults(`${apiUrl}&part=snippet&maxResults=33`)
+getResults(`${apiUrl}&part=snippet&maxResults=33`)
 
 /*{
     "kind": "youtube#searchResult",
