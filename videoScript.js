@@ -19,6 +19,7 @@ const commentContainer = document.createElement("div");
 commentContainer.className = "comment-container";
 
 const sideBar = document.getElementsByClassName("side-bar")[0];
+const menuToggle=document.getElementById("menu-toggle");
 const sideContainer = document.createElement("div");
 sideContainer.className = "side-container";
 

@@ -4,6 +4,9 @@ const dataApi_key = "AIzaSyAQNFuK_xjHRCozEHo0_5sktC7UE-HGIaI";
 const container = document.getElementsByClassName("container")[0];
 const searchField = document.getElementById("search");
 const searchButton = document.getElementsByClassName("search-icon")[0];
+const sideBar=document.getElementsByClassName("side-bar")[0];
+
+const menuToggle=document.getElementById("menu-toggle");
 
 const apiUrl = `https://www.googleapis.com/youtube/v3/search?key=${dataApi_key}`;
 const channelApi=`https://www.googleapis.com/youtube/v3/channels?part=snippet&id=`;
@@ -145,6 +148,27 @@ function convertCount(number) {
 
     return (isNegative ? '-' : '') + formattedNumber + suffix;
 }
+
+function sideBarToggle()
+{
+    
+    const enabled=menuToggle.getAttribute("data-enabled");
+    if(enabled==="true")
+   { 
+    sideBar.style.width="0%";
+    sideBar.style.minWidth="0px";
+    menuToggle.setAttribute("data-enabled","false");
+}
+else
+{
+    sideBar.style.width="10%";
+    sideBar.style.minWidth="72px";
+    menuToggle.setAttribute("data-enabled","true");
+}
+console.log(enabled);
+
+}
+menuToggle.addEventListener("click",sideBarToggle);
 
 getResults(`${apiUrl}&part=snippet&maxResults=33`)
 

@@ -48,10 +48,20 @@ header {
     gap: 10px;
 
 }
+#menu-toggle:hover
+{
+    cursor: pointer;
+    background-color: #7e7171ac;
+    border-radius: 10px;
+}
 
 .logo-container {
     display: flex;
     align-items: center;
+}
+.logo-container a
+{
+    text-decoration: none;
 }
 
 #logo {
